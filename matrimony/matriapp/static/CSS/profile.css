@@ -1,0 +1,342 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fcb6d0, #ffc4d4);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(215, 37, 84, 0.9); /* Semi-transparent navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    padding-right: 20px; 
+    color: #ffc4d4;
+  }
+  
+  .navbar-brand img {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px; 
+  }
+  
+  .navbar-nav .nav-item .nav-link {
+    color: rgba(255, 255, 255, 0.7); 
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover {
+    color: #FF4081;
+    transform: scale(1.1);
+  }
+  
+  .navbar-nav {
+    display: flex;
+    flex-grow: 1;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-left: 20px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) { 
+    .navbar-nav {
+      flex-direction: column; 
+      align-items: center; 
+    }
+  
+    .navbar-nav .nav-item {
+      margin: 10px 0; 
+    }
+  }
+
+  
+  /* General styling for the navbar */
+  .navbar {
+    background-color: #f8f9fa; /* Light background */
+    border-bottom: 2px solid #6c757d; /* Subtle border at the bottom */
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+  }
+
+  /* Styling the brand logo and name */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff; /* Primary color */
+  }
+
+  .navbar-brand img {
+    height: 40px;
+    margin-right: 10px; /* Space between logo and name */
+    border-radius: 50%; /* Circular logo */
+  }
+
+  /* Navbar links */
+  .nav-link {
+    color: #6c757d; /* Neutral color */
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #ffffff; /* White text */
+    background-color: #007bff; /* Primary background */
+    border-radius: 4px; /* Rounded edges */
+  }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  .dropdown-item {
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+    color: #6c757d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dropdown-item:hover {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+
+  /* Toggler button styling */
+  .navbar-toggler {
+    border: none;
+    outline: none;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.5 12.5a.5.5 0 0 1 0-1h13a.5.5 0 0 1 0 1h-13zm0-5a.5.5 0 0 1 0-1h13a.5.5 0 0 1 0 1h-13zm0-5a.5.5 0 0 1 0-1h13a.5.5 0 0 1 0 1h-13z'/%3E%3C/svg%3E");
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .nav-link {
+      text-align: center;
+    }
+
+    .navbar-collapse {
+      text-align: center;
+    }
+  }
+
+
+
+/* Page content */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin-top: 120px;
+    width: 100%;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.container{
+    display: flex;
+}
+/* Form styling */
+form {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #d72554; /* Background color changed to primary color */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: white; /* Text color for form */
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Transition on form fields */
+.form-control,
+.styled-form input, 
+.styled-form textarea, 
+.styled-form select {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #fff; /* White border for better contrast */
+    border-radius: 4px;
+    background-color: #ffe5ec; /* Light pink background for input fields */
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); /* Light shadow */
+}
+
+.form-control:focus {
+    border-color: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Adding hover effect to form inputs */
+.form-control:hover, 
+.styled-form input:hover,
+.styled-form textarea:hover,
+.styled-form select:hover {
+    background-color: #ffd9e2; /* Slightly darker pink on hover */
+    transform: scale(1.03); /* Slight scaling effect */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Soft glowing effect */
+}
+
+/* Label styling */
+.styled-form label {
+    font-weight: bold;
+    width: 150px; /* Align all labels */
+    display: inline-block;
+    color: #fff; /* White label text */
+}
+
+/* Table styling for form layout */
+.styled-form table {
+    width: 100%;
+    border-spacing: 10px; /* Adds spacing between rows */
+}
+
+.styled-form td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* Button styling */
+.styled-form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #fff; /* White button to contrast with form background */
+    color: #d72554; /* Button text color matching the primary theme */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.styled-form button:hover {
+    background-color: #ffe5ec; /* Light pink hover effect */
+    transform: scale(1.1); /* Slight scaling effect on hover */
+}
+
+/* Custom field styling */
+.custom-textarea,
+.custom-select,
+.custom-file-input,
+.styled-bio,
+.styled-location,
+.styled-birth-date,
+.styled-gender,
+.styled-religion,
+.styled-caste,
+.styled-height,
+.styled-education,
+.styled-occupation,
+.styled-income,
+.styled-profile-picture {
+    border: 2px solid #fff; /* White border for custom fields */
+    border-radius: 5px;
+    background-color: #ffe5ec;
+    padding: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); /* Light shadow */
+}
+
+/* Hover effects on custom fields */
+.custom-textarea:hover,
+.custom-select:hover,
+.custom-file-input:hover,
+.styled-bio:hover,
+.styled-location:hover,
+.styled-birth-date:hover,
+.styled-gender:hover,
+.styled-religion:hover,
+.styled-caste:hover,
+.styled-height:hover,
+.styled-education:hover,
+.styled-occupation:hover,
+.styled-income:hover,
+.styled-profile-picture:hover {
+    background-color: #ffd9e2; /* Slightly darker pink on hover */
+    transform: scale(1.03); /* Slight scaling effect */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Soft glowing effect */
+}
+
+/* Links styling */
+p a {
+    color: #d72554;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #a91d41;
+}
+
+/* Keyframe animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    .navbar-brand img {
+        height: 35px;
+        width: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}

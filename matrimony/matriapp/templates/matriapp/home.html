@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/kMVqj8TGi35jFQFTZF6MfxFy4J7RHiF5LIH3Wmf7duMiOe7KKhTQ5PykWEtJc7ZGHfWpMxdxLuBQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+</head>
+<body>
+ 
+<header>
+    <h1>Welcome to Your Dashboard <span>❤️</span></h1>
+</header>
+ 
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+</button>
+ 
+<!-- Navigation Bar -->
+<nav>
+    <a href="{% url 'create_profile' %}" aria-label="Your Profile">Your Profile</a>
+    <a href="{% url 'partner_preference' %}" aria-label="Partner Preferences">Partner Preferences</a>
+    <a href="{% url 'messages_view' %}" aria-label="Messages">Messages</a>
+    <a href="{% url 'chat_room' room_name='default_chat_room' %}" aria-label="Chat Room">Chat Room</a>
+    <a href="{% url 'events_view' %}" aria-label="Events">Events</a>
+    <a href="{% url 'matches' %}" aria-label="Find Matches">Find Matches</a>
+    <a href="{% url 'available_profiles' %}" aria-label="Available Profiles">Available Profiles</a>
+</nav>
+ 
+<!-- Main Content -->
+<div class="content">
+    <!-- Upcoming Events -->
+    <div class="card">
+        <h2>Upcoming Events</h2>
+        {% if upcoming_events %}
+            <ul>
+                {% for event in upcoming_events %}
+                    <li>
+                        {{ event.title }} on {{ event.event_datetime|date:"F j, Y" }} at {{ event.event_datetime|time:"g:i A" }} - Location: {{ event.location }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No upcoming events.</p>
+        {% endif %}
+    </div>
+
+    <!-- Message Notifications -->
+    <div class="card">
+        <h2>Message Notifications</h2>
+        {% if unread_messages %}
+            <ul>
+                {% for message in unread_messages %}
+                    <li>
+                        From: {{ message.sender.username }} - {{ message.content }} 
+                        (Sent on: {{ message.timestamp|date:"F j, Y g:i A" }})
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No new messages.</p>
+        {% endif %}
+    </div>
+
+    <!-- Partner Preferences -->
+    <div class="card">
+        <h2>Your Partner Preferences</h2>
+        {% if partner_preference %}
+            <p>Preferred Age Range: {{ partner_preference.min_age }} - {{ partner_preference.max_age }}</p>
+            <p>Preferred Religion: {{ partner_preference.religion }}</p>
+        {% else %}
+            <p>No partner preferences set.</p>
+        {% endif %}
+    </div>
+
+    <!-- Chat Room -->
+    <div class="card">
+        <h2>Join a Chat Room</h2>
+        <a href="{% url 'chat_room' room_name='default_chat_room' %}" class="btn">Go to Chat</a>
+    </div>
+</div>
+ 
+<footer>
+    <p>&copy; 2024 Your Service - All Rights Reserved</p>
+</footer>
+ 
+<script>
+    // Function to toggle between light and dark themes
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+ 
+        // Toggle the moon and sun icons
+        const themeIcon = document.querySelector('.theme-toggle i');
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    }
+</script>
+</body>
+</html>

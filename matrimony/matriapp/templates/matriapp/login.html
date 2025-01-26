@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Load static files -->
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'CSS/style1.css' %}">
+</head>
+<style>
+    
+/* General styling for the login button */
+.login-button .btn {
+    background-color: #d72554; /* Green color for the button */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for better spacing */
+    font-size: 16px; /* Clear font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+.login-button .btn:hover {
+    background-color: #de4940; /* Slightly darker green */
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+/* Focus effect */
+.login-button .btn:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(72, 239, 128, 0.8); /* Green glow */
+}
+
+</style>
+
+        <div class="wrapper">
+            <span class="rotate-bg"></span>
+            <span class="rotate-bg2"></span>
+    
+            <div class="form-box login">
+                <h2 class="title animation" style="--i:0; --j:21">Login</h2>
+                <form  method="post" action="# {% url 'login' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <i class='bx bxs-user'></i>
+                    <div class="login-button">
+                    <button type="submit" class="btn animation" style="--i:3; --j:24">Login</button>
+                    </div>
+                    <div class="linkTxt animation" style="--i:5; --j:25">
+                        {% comment %} <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p> {% endcomment %}
+                    </div>
+                </form>
+            </div>
+    
+            <div class="info-text login" style="color: white;">
+                <h2 class="animation" style="--i:0; --j:20 ">Welcome to</h2>
+                <p class="animation" style="--i:1; --j:21" >Ananam vivaaham
+                    </p>
+            </div>
+
+        {% if messages %}
+            <div class="alert alert-danger">
+                {% for message in messages %}
+                    {{ message }}<br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
